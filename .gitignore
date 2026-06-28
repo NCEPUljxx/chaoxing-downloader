@@ -1,0 +1,18 @@
+# Playwright
+.playwright-mcp/
+
+# Screenshots / test artifacts
+*.png
+*.jpg
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temp
+*.log
+task_plan.md

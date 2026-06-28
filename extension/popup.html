@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>超星课件下载助手</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 320px;
+      padding: 16px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 13px;
+      color: #333;
+      background: #f8f9fa;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 14px;
+    }
+    .header h1 {
+      font-size: 16px;
+      color: #1890ff;
+      margin-bottom: 4px;
+    }
+    .header p {
+      font-size: 11px;
+      color: #888;
+    }
+    .status-card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .status-card .label {
+      font-size: 11px;
+      color: #999;
+      margin-bottom: 4px;
+    }
+    .status-card .value {
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .file-count {
+      display: flex;
+      gap: 16px;
+    }
+    .file-count > div {
+      flex: 1;
+    }
+    .restricted { color: #ff4d4f; }
+    .allowed { color: #52c41a; }
+    .progress-bar {
+      height: 6px;
+      background: #e8e8e8;
+      border-radius: 3px;
+      margin-top: 8px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #1890ff, #52c41a);
+      border-radius: 3px;
+      transition: width 0.3s;
+      width: 0%;
+    }
+    .progress-text {
+      font-size: 11px;
+      color: #666;
+      margin-top: 4px;
+      text-align: center;
+    }
+    .tips {
+      font-size: 11px;
+      color: #888;
+      line-height: 1.6;
+      margin-top: 12px;
+      padding: 10px;
+      background: #fffbe6;
+      border: 1px solid #ffe58f;
+      border-radius: 6px;
+    }
+    .tips strong {
+      color: #d48806;
+    }
+    .no-page {
+      text-align: center;
+      padding: 20px;
+      color: #999;
+    }
+    .no-page .icon { font-size: 40px; margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>📚 超星课件下载助手</h1>
+    <p>快速下载受限课程资料</p>
+  </div>
+
+  <div id="hasPage">
+    <div class="status-card">
+      <div class="label">课程</div>
+      <div class="value" id="courseName">--</div>
+    </div>
+
+    <div class="status-card">
+      <div class="file-count">
+        <div>
+          <div class="label">总文件</div>
+          <div class="value" id="totalFiles">--</div>
+        </div>
+        <div>
+          <div class="label restricted">受限文件</div>
+          <div class="value restricted" id="restrictedFiles">--</div>
+        </div>
+        <div>
+          <div class="label allowed">可下载</div>
+          <div class="value allowed" id="allowedFiles">--</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="status-card" id="progressCard" style="display:none;">
+      <div class="label">下载进度</div>
+      <div class="value" id="progressStatus">就绪</div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <div class="progress-text" id="progressText"></div>
+    </div>
+  </div>
+
+  <div id="noPage" class="no-page" style="display:none;">
+    <div class="icon">📂</div>
+    <p>请在超星课程资料页面使用此扩展</p>
+  </div>
+
+  <div class="tips">
+    <strong>💡 使用提示：</strong><br>
+    1. 打开超星课程 → 点击「资料」<br>
+    2. 页面会出现下载面板和复选框<br>
+    3. 勾选文件 → 点击下载即可
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
